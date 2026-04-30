@@ -41,3 +41,19 @@ Phase D: Enforce and Test API Keys
 * Test the Python routing by appending the path and the key to your Gateway URL. example : curl -s "https://YOUR_GATEWAY_URL/python?key=YOUR_API_KEY"
 
 **TASK :** Configure API Gateway permissions and ensure the API Gateway service account has the functions.invoke and/or run.invoke permissions on the backend functions, while restricting direct user invocation of the functions.
+
+### Scenario 3 : Multi-Service Traffic Simulation
+
+* Deploy App Engine Flex (Receiver)
+* Create Serverless VPC Access Connector
+* Deploy Cloud Run (Traffic Simulator)
+* Flow Cloud Run > Serverless VPC > App Engine Flex
+
+**TASK :** 
+Deploy both applications and configure the Serverless VPC Access connector.
+Set up IAM roles for secure service-to-service communication.
+Use the Cloud Run UI to start and stop traffic simulations.
+Monitor application performance and resource utilization in Cloud Monitoring.
+Analyze request latency and flow in Cloud Trace to understand the path and time spent in each segment.
+
+
