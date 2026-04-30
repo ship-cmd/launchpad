@@ -14,7 +14,7 @@ Create two separate VPC networks: vpc-a and vpc-b.
 Configure the Cloud Run service with Ingress settings to "Internal". Deploy/associate this service with vpc-a (e.g., by means of a Serverless VPC Access connector in vpc-a if needed, although for ingress control, the association is more about network origin).
 Deploy a Compute Engine VM within vpc-b.
 Set up VPC Network Peering between vpc-a and vpc-b. Ensure routes are exchanged.
-IAM Task: Ensure the VM's service account has the run.invoker role on the Cloud Run service.
+Ensure the VM's service account has the run.invoker role on the Cloud Run service.
 From the VM in vpc-b, use curl or a script to send requests to the Cloud Run service's invocation endpoint. This demonstrates secure, private cross-VPC access.
 
 
