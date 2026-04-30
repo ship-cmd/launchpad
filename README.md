@@ -22,14 +22,8 @@ From the VM in vpc-b, use curl or a script to send requests to the Cloud Run ser
 
 Folder structure : 
 
-scenario2/
-├── python-service/
-│   ├── main.py
-│   └── requirements.txt
-├── node-service/
-│   ├── index.js
-│   └── package.json
-└── openapi.yaml
+<img width="140" height="134" alt="image" src="https://github.com/user-attachments/assets/ac0daad9-8213-4dcb-bcc7-984f7025ec88" />
+
 
 Phase A: Deploy the Backend Functions
 * Note down the exact URLs outputted by both deployments. You will need them for the API Gateway configuration.
