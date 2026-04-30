@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Architecture Visualization</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f8f9fa; }
+        .box { padding: 20px; margin: 10px; border-radius: 8px; display: inline-block; font-weight: bold; }
+        .cr { background: #e8f0fe; border: 2px solid #4285f4; color: #174ea6; }
+        .vpc { background: #e6f4ea; border: 2px solid #34a853; color: #0d652d; }
+        .gae { background: #fce8e6; border: 2px solid #ea4335; color: #a50e0e; }
+        .arrow { font-size: 24px; color: #5f6368; vertical-align: middle; margin: 0 15px; }
+    </style>
+</head>
+<body>
+    <h2>Traffic Simulation Architecture</h2>
+    <div style="margin-top: 40px;">
+        <div class="box cr">1. Cloud Run (Simulator & UI)</div>
+        <span class="arrow">➔</span>
+        <div class="box vpc">2. Serverless VPC Access Connector</div>
+        <span class="arrow">➔</span>
+        <div class="box gae">3. App Engine Flex (Receiver)</div>
+    </div>
+    <p style="margin-top: 30px; color: #5f6368;">
+        Traffic flows securely across the internal VPC network.<br>
+        Requests are traced via OpenTelemetry and authenticated via OIDC.
+    </p>
+</body>
+</html>
