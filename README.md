@@ -1,7 +1,7 @@
 # launchpad
-Scenario 1: The Secure Receiver Application (Cloud Run)
+### Scenario 1: The Secure Receiver Application (Cloud Run)
 
-### Build & Containerize:
+ Build & Containerize:
 
 Develop a simple API application (e.g., Flask/Python, Express/Node.js) that acts as a receiver, capable of accepting POST requests and logging the received data.
 Write a Dockerfile to containerize the application.
