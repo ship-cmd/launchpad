@@ -3,26 +3,127 @@
 <head>
     <title>Architecture Visualization</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f8f9fa; }
-        .box { padding: 20px; margin: 10px; border-radius: 8px; display: inline-block; font-weight: bold; }
-        .cr { background: #e8f0fe; border: 2px solid #4285f4; color: #174ea6; }
-        .vpc { background: #e6f4ea; border: 2px solid #34a853; color: #0d652d; }
-        .gae { background: #fce8e6; border: 2px solid #ea4335; color: #a50e0e; }
-        .arrow { font-size: 24px; color: #5f6368; vertical-align: middle; margin: 0 15px; }
+        body { font-family: 'Google Sans', sans-serif; text-align: center; padding: 20px; background-color: #f8f9fa; color: #3c4043; }
+        h2 { color: #202124; margin-bottom: 30px; }
+        .container { display: flex; flex-direction: column; align-items: center; }
+        .row { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+        .component {
+            padding: 12px 18px;
+            margin: 8px;
+            border-radius: 8px;
+            border: 2px solid;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .component:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .label { font-size: 0.8em; color: #5f6368; margin-top: 4px; }
+
+        /* Color Palette */
+        .user { background-color: #f3e8fd; border-color: #9334e6; color: #62149c; }
+        .gfe { background-color: #e0f2f1; border-color: #009688; color: #004d40; }
+        .run { background-color: #e8f0fe; border-color: #4285f4; color: #174ea6; }
+        .net { background-color: #e6f4ea; border-color: #34a853; color: #0d652d; }
+        .gae { background-color: #fce8e6; border-color: #ea4335; color: #a50e0e; }
+        .data { background-color: #fef7e0; border-color: #fbbc04; color: #b06000; }
+
+        .arrow { font-size: 28px; color: #5f6368; margin: 0 10px; display: flex; align-items: center; }
+        .down-arrow { transform: rotate(90deg); margin: 5px 0; }
+        .line { border-left: 2px dashed #9aa0a6; height: 20px; margin: 0 auto; }
+
+        .vpc-box { border: 2px dashed #34a853; padding: 15px; margin-top: 10px; border-radius: 8px; background-color: #f8f9fa; display: inline-block; }
+        .vpc-label { font-weight: bold; color: #0d652d; margin-bottom: 10px; }
+
+        p.footer { margin-top: 40px; color: #5f6368; font-size: 0.9em; line-height: 1.6; }
     </style>
 </head>
 <body>
     <h2>Traffic Simulation Architecture</h2>
-    <div style="margin-top: 40px;">
-        <div class="box cr">1. Cloud Run (Simulator & UI)</div>
-        <span class="arrow">➔</span>
-        <div class="box vpc">2. Serverless VPC Access Connector</div>
-        <span class="arrow">➔</span>
-        <div class="box gae">3. App Engine Flex (Receiver)</div>
+    <div class="container">
+        <!-- Row 1: User Entry -->
+        <div class="row">
+            <div class="component user">
+                <div>👨‍💻 Engineer</div>
+                <div class="label">Initiates Test</div>
+            </div>
+            <span class="arrow">➔</span>
+            <div class="component gfe">
+                <div>GFE</div>
+                <div class="label">Google Front End</div>
+            </div>
+            <span class="arrow">➔</span>
+            <div class="component run">
+                <div>Cloud Run UI</div>
+                <div class="label">Simulator Frontend</div>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <!-- Row 2: Cloud Run Backend & VPC Entry -->
+        <div class="row">
+             <div class="component run">
+                <div>Cloud Run App</div>
+                <div class="label">Traffic Generator</div>
+            </div>
+            <span class="arrow">➔</span>
+            <div class="component net">
+                <div>RSG</div>
+                <div class="label">Remote Socket GW</div>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <!-- Row 3: VPC Network Components -->
+        <div class="row">
+            <div class="vpc-box">
+                <div class="vpc-label">VPC Network</div>
+                <div class="row">
+                    <div class="component net">
+                        <div>VPC Connector</div>
+                        <div class="label">Tesseract VMs</div>
+                    </div>
+                    <span class="arrow">➔</span>
+                    <div class="component gae">
+                        <div>App Engine Flex VM</div>
+                        <div class="label">GCE Instance</div>
+                    </div>
+                    <span class="arrow">➔</span>
+                     <div class="component gae">
+                        <div>App Engine App</div>
+                        <div class="label">Receiver Endpoint</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+         <!-- Row 4: Observability -->
+        <div class="row">
+            <div class="component data">
+                <div>Cloud Trace</div>
+                <div class="label">OpenTelemetry</div>
+            </div>
+            <div class="component data">
+                <div>Cloud Monitoring</div>
+                <div class="label">Metrics & Logs</div>
+            </div>
+        </div>
     </div>
-    <p style="margin-top: 30px; color: #5f6368;">
-        Traffic flows securely across the internal VPC network.<br>
-        Requests are traced via OpenTelemetry and authenticated via OIDC.
+
+    <p class="footer">
+        The Cloud Run App sends requests through the Serverless VPC Access stack (RSG, Connector VMs)
+        to the App Engine Flex instance running within the VPC. <br>
+        IAM ensures secure service-to-service calls. Cloud Trace provides visibility.
     </p>
 </body>
 </html>
