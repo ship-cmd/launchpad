@@ -1,4 +1,4 @@
-# launchpad
+# Launchpad
 ### Scenario 1: The Secure Receiver Application (Cloud Run)
 
  Build & Containerize:
