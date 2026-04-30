@@ -1,0 +1,12 @@
+{
+  "name": "cloud-run-simulator",
+  "dependencies": {
+    "express": "^4.18.2",
+    "google-auth-library": "^9.0.0",
+    "node-fetch": "^2.6.7",
+    "@opentelemetry/api": "^1.4.1",
+    "@opentelemetry/sdk-node": "^0.39.1",
+    "@opentelemetry/auto-instrumentations-node": "^0.37.0",
+    "@google-cloud/opentelemetry-cloud-trace-exporter": "^2.1.0"
+  }
+}
