@@ -44,6 +44,12 @@ Phase D: Enforce and Test API Keys
 
 ### Scenario 3 : Multi-Service Traffic Simulation
 
+
+Folder Structure : 
+
+<img width="272" height="223" alt="image" src="https://github.com/user-attachments/assets/1ad78052-380a-466f-8a36-98f341c2c010" />
+
+
 * Deploy App Engine Flex (Receiver)
 * Create Serverless VPC Access Connector
 * Deploy Cloud Run (Traffic Simulator)
